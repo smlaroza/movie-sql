@@ -129,5 +129,10 @@ FROM ratings
 GROUP BY user_id
 HAVING r > 50
 ORDER BY h DESC
-LIMIT 1
+LIMIT 1;
 --Question 27
+SELECT  m.title, Avg(r.rating) as avgRating
+FROM movies.ratings r
+LEFT JOIN movies.movies m ON m.id=r.movie_id
+GROUP BY m.title
+HAVING avgRating > 4;
